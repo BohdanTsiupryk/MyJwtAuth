@@ -1,7 +1,8 @@
 package bts.test.config.jwt;
 
-import bts.test.config.UserDetailsServiceImpl;
+import bts.test.service.impl.UserDetailsServiceImpl;
 import bts.test.model.UserDetailsIml;
+import bts.test.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -34,5 +35,4 @@ public class JwtFilter extends GenericFilterBean {
         }
         filterChain.doFilter(servletRequest, servletResponse);
     }
-
 }

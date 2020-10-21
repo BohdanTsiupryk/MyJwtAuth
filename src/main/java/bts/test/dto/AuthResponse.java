@@ -1,4 +1,4 @@
-package bts.test.controler.dto;
+package bts.test.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,5 +1,8 @@
 package bts.test.config.jwt;
 
+import bts.test.dto.converters.UserConverter;
+import bts.test.model.User;
+import bts.test.util.JwtUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -10,8 +13,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.Date;
 
 @Component
@@ -23,13 +27,13 @@ public class JwtProvider {
 
     @Value("${jwt.secret}")
     private String jwtSecret;
-    @Value("${jwt.expirationDay:1}")
-    private String jwtExpDay;
+    @Value("${jwt.expirationTime:3600}")
+    private String jwtSeconds;
 
-    public String generateToken(String login) {
-        Date date = Date.from(LocalDate.now().plusDays(Integer.parseInt(jwtExpDay)).atStartOfDay(ZoneId.systemDefault()).toInstant());
+    public String generateToken(User user) {
+        Date date = Date.from(LocalDateTime.now().plusSeconds(Long.parseLong(jwtSeconds)).atZone(ZoneId.systemDefault()).toInstant());
         return Jwts.builder()
-                .setSubject(login)
+                .setSubject(user.getEmail())
                 .setExpiration(date)
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
                 .compact();

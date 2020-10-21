@@ -1,4 +1,4 @@
-package bts.test.config.jwt;
+package bts.test.util;
 
 import org.springframework.util.StringUtils;
 

@@ -1,9 +1,18 @@
 package bts.test.service;
 
+import bts.test.dto.UserDto;
 import bts.test.model.User;
 
-public interface UserService {
-    void saveUser(User user);
+import java.util.List;
 
-    User findByEmailAndPassword(String login, String password);
+public interface UserService {
+    List<User> getAllUser();
+
+    User getUserById(Long id);
+
+    void deleteUserById(Long id);
+
+    User saveNewUser(UserDto userDto);
+
+    User updateUser(Long id, UserDto userDto);
 }

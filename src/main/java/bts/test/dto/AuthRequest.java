@@ -1,12 +1,11 @@
-package bts.test.controler.dto;
+package bts.test.dto;
 
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 
 @Data
-public class RegistrationRequestDto {
-
+public class AuthRequest {
     @NotEmpty
     private String login;
 

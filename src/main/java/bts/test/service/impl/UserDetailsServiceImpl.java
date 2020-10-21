@@ -1,4 +1,4 @@
-package bts.test.config;
+package bts.test.service.impl;
 
 import bts.test.model.User;
 import bts.test.model.UserDetailsIml;

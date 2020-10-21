@@ -10,5 +10,5 @@ spring:
     url: jdbc:oracle:thin:@localhost:32769:XE
     driverClassName: oracle.jdbc.driver.OracleDriver
 jwt:
-  expirationDay: 1
-  secret: 'super_puper_secret_key'
+  expirationTime: 60
+  secret: 'super_puper_secret_key2'
