@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+      show-sql: true
+  datasource:
+    initialization-mode: always
+    username: dbuser
+    password: pass
+    url: jdbc:oracle:thin:@localhost:32769:XE
+    driverClassName: oracle.jdbc.driver.OracleDriver
+jwt:
+  expirationDay: 1
+  secret: 'super_puper_secret_key'
