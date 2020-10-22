@@ -1,5 +1,5 @@
 # MyJwtAuth
-###Test task with jwt auth
+### Test task with jwt auth
 
 Start app:
 ```
@@ -7,19 +7,21 @@ build: mvn install
 run: java -jar target/OrilTestTask.jar
 ```
 
-#Application properties
+# Application properties
 Just click to see [application properties file](src/main/resources/application.yml) 
 
 [DB script](src/main/resources/usr.sql) - script for migration (written for **Oracle** db)
+
+Default port `8080`
 
 In **application.yml** you can change credential to DB and JWT properties `expirationTime(in seconds, default 3600)` and `secret`
 
 Also you can change property `spring.jpa.hibernate.ddl-auto` to `create` for auto generate table  
 
 
-#REST API
+# REST API
 ## Authorization:
-* ###/registration
+* ### /registration
    * method `POST` 
    * body 
         ```
@@ -32,7 +34,7 @@ Also you can change property `spring.jpa.hibernate.ddl-auto` to `create` for aut
         ```
    * response `{"token":"your.jwt.token"}`
 ---
- * ###/login
+ * ### /login
    * method `POST` 
    * body 
         ```
@@ -43,14 +45,14 @@ Also you can change property `spring.jpa.hibernate.ddl-auto` to `create` for aut
         ```
    * response `{"token":"your.jwt.token"}`
 ---
- * ###/logout
+ * ### /logout
    * method `POST` 
    * headers `Authorization: Bearer your.jwt.token`
    * response `{"token":"your.jwt.token"}`
 ---
 ## User CRUD:
 All actions needs jwt token 
- * ###/user - get all user
+ * ### /user - get all user
    * method `GET` 
    * headers `Authorization: Bearer your.jwt.token`
    * response 
@@ -71,7 +73,7 @@ All actions needs jwt token
         }
    ```
 ---
- * ###/user/1 - get user by id
+ * ### /user/1 - get user by id
    * method `GET` 
    * headers `Authorization: Bearer your.jwt.token`
    * response 
@@ -85,12 +87,12 @@ All actions needs jwt token
         }
    ```
 ---
- * ###/user/1 - delete user by id
+ * ### /user/1 - delete user by id
    * method `DELETE` 
    * headers `Authorization: Bearer your.jwt.token`
    * response `204
 ---
- * ###/user - create new user
+ * ### /user - create new user
    * method `POST` 
    * headers `Authorization: Bearer your.jwt.token`
    * body 
@@ -113,7 +115,7 @@ All actions needs jwt token
        }
    ```
 ---
- * ###/user/2 - change user info
+ * ### /user/2 - change user info
    * method `PUT` 
    * headers `Authorization: Bearer your.jwt.token`
    * body 
