@@ -1,8 +1,9 @@
+server:
+  port: 8080
 spring:
   jpa:
     hibernate:
-      ddl-auto: create
-      show-sql: true
+      ddl-auto: validate
   datasource:
     initialization-mode: always
     username: dbuser

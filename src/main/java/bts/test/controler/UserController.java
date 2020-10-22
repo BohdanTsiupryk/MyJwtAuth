@@ -40,7 +40,7 @@ public class UserController {
 
     @JsonView(View.HIDDEN.class)
     @GetMapping("/{id}")
-    public ResponseEntity<UserDto> getByEmail(@PathVariable Long id) {
+    public ResponseEntity<UserDto> getById(@PathVariable Long id) {
         User userById = userService.getUserById(id);
 
         return ResponseEntity.ok(UserConverter.mapToDto(userById));
